@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Regulatory Bodies in Ayurveda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #588157;
+            line-height: 1;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .flow-step {
+                flex: 1;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .flow-arrow {
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                transform: rotate(-90deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#DAD7CD] text-[#344E41]">
+
+    <!-- 
+    Narrative & Structure Plan:
+    1. Header: Sticky title and subtitle.
+    2. Introduction: "Why This Matters" - setting the stage for BAMS students.
+    3. The Top Level: Ministry of AYUSH: Role, vision, and high-level structure (HTML Org Chart).
+    4. The Key Players: Autonomous Bodies: A grid of cards introducing NCISM, CCRAS, etc.
+    5. Deep Dive 1: NCISM: Overview, structure (HTML Diagram), functions.
+    6. Practical Impact: College Permissions (HTML Flowchart), NCISM vs. University roles, and VC role.
+    7. Deep Dive 2: CCRAS: Overview, functions, and research centres (Big Number + List).
+    8. Student-Centric Info: Funding (Chart.js Donut Chart) and Registration process.
+    9. The Big Picture: Global Collaborations.
+    10. Conclusion: Take-Home Message.
+    11. Footer: References and presenter info.
+    -->
+
+    <!-- 
+    Visualization Selection Plan:
+    1. MoA Structure (Slide 5): Goal: Organize. Viz: HTML/CSS Org Chart. Justification: Simple hierarchy, built with flexbox. NO SVG/Mermaid.
+    2. Autonomous Bodies (Slide 6): Goal: Organize. Viz: HTML/CSS Card Grid. Justification: Visually engaging way to list key bodies. NO SVG/Mermaid.
+    3. NCISM Structure (Slide 8): Goal: Organize. Viz: HTML/CSS Diagram. Justification: Clear layout for the four boards using flexbox/grid. NO SVG/Mermaid.
+    4. College Permission Process (Slide 13): Goal: Organize. Viz: HTML/CSS Flowchart. Justification: Vertical/horizontal step-by-step process using styled divs. NO SVG/Mermaid.
+    5. CCRAS Research Centres (Slide 16): Goal: Inform. Viz: "Single Big Number" (HTML/CSS) + List. Justification: A chart is overkill; a large stat is more impactful. NO SVG/Mermaid.
+    6. Funding & Schemes (Slide 17): Goal: Compare (composition). Viz: Donut Chart (Chart.js). Justification: Ideal for showing the components of the AYURSWASTHYA Yojana. Uses Canvas, required tooltip config, and label wrapping. NO SVG/Mermaid.
+    -->
+
+    <!-- 
+    Confirmation:
+    - NO Mermaid JS was used. All diagrams are built with structured HTML and Tailwind CSS.
+    - NO SVG graphics were used. All visualizations are either Chart.js (Canvas) or pure HTML/CSS.
+    -->
+
+    <header class="sticky top-0 z-50 bg-[#3A5A40] text-white shadow-lg p-5">
+        <div class="container mx-auto">
+            <h1 class="text-xl md:text-3xl font-bold">Know Your Regulatory Bodies in Ayurveda</h1>
+            <p class="text-sm md:text-base text-[#DAD7CD]">Orientation Module for BAMS Transitional Curriculum</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+            <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Why Know Your Regulators?</h2>
+            <p class="mb-4">As a BAMS student, you are entering a structured system of professional education. Understanding the bodies that govern this system is crucial for your academic journey and future career.</p>
+            <ul class="list-disc list-inside space-y-2 text-lg">
+                <li>It clarifies the framework of your education and examinations.</li>
+                <li>You will understand how your college gets permission and is inspected.</li>
+                <li>It prepares you for future registration as a practitioner.</li>
+                <li>You learn about the bodies that fund and promote Ayurvedic research.</li>
+                <li>It empowers you to be an informed and compliant professional.</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+            <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">The Ministry of AYUSH (MoA)</h2>
+            <ul class="list-disc list-inside space-y-2 mb-6">
+                <li><strong>Established:</strong> 9th November 2014, by elevating the Dept. of AYUSH.</li>
+                <li><strong>Purpose:</strong> To ensure the optimal development and propagation of AYUSH systems of healthcare.</li>
+                <li><strong>Role:</strong> The apex body for policy formulation, development, research, and regulation of Ayurveda, Yoga, Unani, Siddha, and Homoeopathy.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-[#3A5A40] mb-3">Aim & Vision (2025)</h3>
+            <ul class="list-disc list-inside space-y-2 mb-6">
+                <li><strong>Aim:</strong> To promote and mainstream AYUSH systems in national healthcare.</li>
+                <li><strong>Vision 2025:</strong> "To establish AYUSH systems as the preferred choice of holistic healthcare for the people, integrating them into the national healthcare system, and ensuring global acceptance."</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-[#3A5A40] mb-4 text-center">Structure of the Ministry</h3>
+            <div class="flex flex-col items-center">
+                <div class="bg-[#A3B18A] text-[#344E41] font-bold p-4 rounded-lg shadow-md">
+                    Union Minister of AYUSH<br>(Shri Prataprao Ganpatrao Jadhav)
+                </div>
+                <div class="w-1 h-8 bg-[#588157]"></div>
+                <div class="bg-[#A3B18A] text-[#344E41] p-4 rounded-lg shadow-md">
+                    Secretary (AYUSH)<br>(Vaidya Rajesh Kotecha)
+                </div>
+                <div class="w-1 h-8 bg-[#588157]"></div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow-inner w-full md:w-1/2 text-center">
+                    <h4 class="font-semibold">Leads to...</h4>
+                    <p>Autonomous Bodies, Research Councils, Subordinate Offices</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold text-[#3A5A40] mb-4 text-center">Key Autonomous Bodies under MoA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#588157]">
+                    <h3 class="text-xl font-bold text-[#3A5A40]">NCISM</h3>
+                    <p>National Commission for Indian System of Medicine. Regulates education and practice.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#588157]">
+                    <h3 class="text-xl font-bold text-[#3A5A40]">CCRAS</h3>
+                    <p>Central Council for Research in Ayurvedic Sciences. The apex body for research.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#588157]">
+                    <h3 class="text-xl font-bold text-[#3A5A40]">PCIM&H</h3>
+                    <p>Pharmacopoeia Commission for Indian Medicine & Homoeopathy. Sets drug standards.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#588157]">
+                    <h3 class="text-xl font-bold text-[#3A5A40]">NMPB</h3>
+                    <p>National Medicinal Plants Board. Coordinates matters related to medicinal plants.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#588157]">
+                    <h3 class="text-xl font-bold text-[#3A5A40]">RAV</h3>
+                    <p>Rashtriya Ayurveda Vidyapeeth. Promotes traditional Ayurvedic learning (Guru-Shishya).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+            <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Deep Dive: NCISM</h2>
+            <p class="text-lg mb-4">The National Commission for Indian System of Medicine is the most important body for you as a student. It replaced the old CCIM in 2021.</p>
+            <ul class="list-disc list-inside space-y-2 mb-6">
+                <li><strong>Established:</strong> 2021 (under the NCISM Act, 2020)</li>
+                <li><strong>Headquarters:</strong> New Delhi</li>
+                <li><strong>Chairperson (2025):</strong> Vaidya Jayant Deopujari</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-[#3A5A40] mb-4 text-center">Structure of NCISM</h3>
+            <div class="flex flex-col items-center">
+                <div class="bg-[#588157] text-white font-bold p-4 rounded-lg shadow-md mb-4 w-full md:w-1/2 text-center">
+                    NCISM
+                </div>
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-[#A3B18A] p-4 rounded-lg shadow-md text-center">Board of Education (BAMS/PG Syllabus)</div>
+                    <div class="bg-[#A3B18A] p-4 rounded-lg shadow-md text-center">Board of Assessment & Rating</div>
+                    <div class="bg-[#A3B18A] p-4 rounded-lg shadow-md text-center">Board of Ethics & Registration</div>
+                    <div class="bg-[#A3B18A] p-4 rounded-lg shadow-md text-center">Board of Ayurveda</div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-[#3A5A40] mt-6 mb-3">Major Functions of NCISM</h3>
+            <ul class="list-disc list-inside space-y-2">
+                <li>Sets and maintains standards for education (syllabi, college infrastructure).</li>
+                <li>Grants recognition to Ayurvedic colleges and qualifications.</li>
+                <li>Conducts inspections and assessments of colleges.</li>
+                <li>Maintains the National Register of practitioners.</li>
+                <li>Regulates professional conduct and ethics.</li>
+            </ul>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <section class="bg-white rounded-lg shadow-md p-6 lg:col-span-2">
+                <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">College Permission & University Role</h2>
+                <h3 class="text-2xl font-semibold text-[#3A5A40] mb-4">How Your College Seat is Approved</h3>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="flow-step">
+                        <div class="bg-gray-100 p-3 rounded-lg shadow-inner w-32 h-20 flex items-center justify-center">State Govt. NOC</div>
+                    </div>
+                    <div class="flow-arrow md:rotate-0">↓</div>
+                    <div class="flow-step">
+                        <div class="bg-gray-100 p-3 rounded-lg shadow-inner w-32 h-20 flex items-center justify-center">NCISM Application & Scrutiny</div>
+                    </div>
+                    <div class="flow-arrow md:rotate-0">↓</div>
+                    <div class="flow-step">
+                        <div class="bg-gray-100 p-3 rounded-lg shadow-inner w-32 h-20 flex items-center justify-center">College Inspection</div>
+                    </div>
+                    <div class="flow-arrow md:rotate-0">↓</div>
+                    <div class="flow-step">
+                        <div class="bg-gray-100 p-3 rounded-lg shadow-inner w-32 h-20 flex items-center justify-center">NCISM Recommendation</div>
+                    </div>
+                    <div class="flow-arrow md:rotate-0">↓</div>
+                    <div class="flow-step">
+                        <div class="bg-[#588157] text-white p-3 rounded-lg shadow-md w-32 h-20 flex items-center justify-center">Ministry of AYUSH Final Approval</div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-semibold text-[#3A5A40] mt-8 mb-4">University vs. NCISM: Role Difference</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-[#A3B18A] p-4 rounded-lg">
+                        <h4 class="font-bold text-lg text-white">NCISM</h4>
+                        <p>Grants <strong>RECOGNITION</strong> to your college and qualification. Sets the curriculum. Maintains the central register.</p>
+                    </div>
+                    <div class="bg-[#A3B18A] p-4 rounded-lg">
+                        <h4 class="font-bold text-lg text-white">Your University</h4>
+                        <p>Grants the <strong>DEGREE</strong> (e.g., BAMS). Conducts examinations. Handles affiliation and academic administration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">The Vice-Chancellor</h2>
+                <p class="mb-4">The Vice-Chancellor (VC) is the head of your university (e.g., Gujarat Ayurved University).</p>
+                <h3 class="text-xl font-semibold text-[#3A5A40] mb-2">Key Functions:</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Principal academic and administrative officer of the university.</li>
+                    <li>Chairs key university bodies (like the Academic Council).</li>
+                    <li>Responsible for implementing university policies.</li>
+                    <li>Confers degrees during convocation.</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+            <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Deep Dive: CCRAS</h2>
+            <p class="text-lg mb-4">The Central Council for Research in Ayurvedic Sciences is the apex body for formulating, coordinating, and promoting research in Ayurveda.</p>
+            <ul class="list-disc list-inside space-y-2 mb-6">
+                <li><strong>Mandate:</strong> Scientific validation of Ayurveda, drug development, and literary research.</li>
+                <li><strong>Headquarters:</strong> New Delhi</li>
+                <li><strong>Director General (2025):</strong> Prof. (Vd.) Rabinarayan Acharya</li>
+            </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#3A5A40] mb-3">Core Functions of CCRAS</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Conducts clinical, pharmacological, and literary research.</li>
+                        <li>Standardizes Ayurvedic drugs and formulations.</li>
+                        <li>Collaborates with national and international research institutions.</li>
+                        <li>Runs training programs for researchers and practitioners.</li>
+                        <li>Publishes research journals and monographs.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#3A5A40] mb-3">Research Centres Network</h3>
+                    <div class="flex items-center space-x-4 bg-gray-100 p-4 rounded-lg">
+                        <div class="text-7xl font-bold text-[#588157]">30+</div>
+                        <div class="text-xl text-[#3A5A40] font-semibold">National Research Centres, Institutes & Units</div>
+                    </div>
+                    <p class="mt-4 font-semibold">Key Examples:</p>
+                    <ul class="list-disc list-inside space-y-1 mt-2">
+                        <li>National Institute of Ayurvedic Pharmaceutical Research, Patiala</li>
+                        <li>National Research Institute for Panchakarma, Cheruthuruthy</li>
+                        <li>Captain Srinivasa Murthy Regional Ayurveda Drug Dev. Institute, Chennai</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Funding & Schemes (2025)</h2>
+                <p class="mb-4">The government funds education and research through various schemes. The flagship scheme for infrastructure is the <strong>AYURSWASTHYA Yojana</strong>.</p>
+                <p class="mb-4 font-semibold text-center">AYURSWASTHYA Yojana Components</p>
+                <div class="chart-container">
+                    <canvas id="fundingChart"></canvas>
+                </div>
+            </section>
+            
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Post-Internship Registration</h2>
+                <p class="mb-4">After your 1-year internship, you must register to practice legally. Here is the typical process:</p>
+                <ol class="list-decimal list-inside space-y-3">
+                    <li class="font-semibold">Complete your mandatory rotating internship and get the completion certificate from your college.</li>
+                    <li class="font-semibold">Gather documents: BAMS degrees, internship certificate, identity proof, photos.</li>
+                    <li class="font-semibold">Apply to your <strong>State Ayurveda Council/Board</strong> (e.g., Gujarat Board of Ayurvedic & Unani Systems of Medicine).</li>
+                    <li class="font-semibold">Pay the required fee and complete any verification.</li>
+                    <li class="font-semibold">Receive your State Registration Number.</li>
+                    <li class="font-semibold">Your state registration is automatically updated to the <strong>National Register</strong> maintained by NCISM.</li>
+                </ol>
+            </section>
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-[#3A5A40] mb-4">Research & Global Collaborations</h2>
+                <p class="mb-4">Ayurveda is gaining global recognition through strategic collaborations:</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>WHO Collaborating Centres (CCs):</strong> MoA has established WHO CCs for traditional medicine in India (e.g., at ITRA, Jamnagar).</li>
+                    <li><strong>ICMR/CSIR Tie-ups:</strong> Collaborative research projects with top national science bodies to validate Ayurvedic principles.</li>
+                    <li><strong>International MOUs:</strong> Agreements with universities and countries for research and education in Ayurveda.</li>
+                </ul>
+            </div>
+
+            <div class="bg-[#3A5A40] text-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold mb-4">Summary / Take-Home Message</h2>
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li>The <strong>Ministry of AYUSH</strong> is the apex body guiding policy.</li>
+                    <li><strong>NCISM</strong> is your primary regulator: It designs your syllabus, inspects your college, and will register you as a doctor.</li>
+                    <li><strong>CCRAS</strong> is the primary research body, working to scientifically validate and develop Ayurveda.</li>
+                    <li>Your <strong>University</strong> conducts exams and awards your BAMS degree.</li>
+                    <li>Your career is built on this foundation of regulation, education, and research.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center p-8 bg-[#3A5A40] text-[#DAD7CD] mt-8">
+        <p class="font-semibold">References (Official Sources as of 2025):</p>
+        <p class="text-sm">ayush.gov.in | ncismindia.org | ccras.nic.in</p>
+        <p class="mt-4 font-bold text-lg">Govt. Ayurved College, Vadodara | 2025</p>
+    </footer>
+
+    <script>
+        function wrapLabel(label) {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxLength && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const fundingLabels = [
+            'AYUSH Centres of Excellence',
+            'Upgradation of Facilities'
+        ];
+
+        const wrappedFundingLabels = fundingLabels.map(wrapLabel);
+
+        const fundingCtx = document.getElementById('fundingChart').getContext('2d');
+        new Chart(fundingCtx, {
+            type: 'doughnut',
+            data: {
+                labels: wrappedFundingLabels,
+                datasets: [{
+                    label: 'AYURSWASTHYA Yojana',
+                    data: [60, 40],
+                    backgroundColor: [
+                        '#588157',
+                        '#A3B18A'
+                    ],
+                    borderColor: [
+                        '#DAD7CD'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#344E41'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
